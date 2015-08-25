@@ -1,0 +1,8 @@
+<h2><%= @survey.name %></h2>
+<ol>
+  <% @survey.questions.each do |question| %>
+  <li><%= question.description %></li>
+  <% end %>
+</ol>
+<br>
+<a href="/" class="btn btn-success">Home</a>

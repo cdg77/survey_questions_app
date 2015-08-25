@@ -34,3 +34,9 @@ post('/survey/question/add') do
   @questions = Question.all()
   erb(:survey_add)
 end
+
+get('/survey/:id') do
+  survey_id = params.fetch('id').to_i
+  @survey = Survey.find(survey_id)
+  erb(:survey)
+end

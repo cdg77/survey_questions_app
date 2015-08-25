@@ -5,7 +5,7 @@
 
 <ul>
   <% @surveys.all().each() do |survey| %>
-  <li><%= survey.name %></li>
+  <li><a href="/survey/<%= survey.id %>"><%= survey.name %></a> </li>
   <% end %>
 </ul>
 <% else %>
@@ -14,5 +14,5 @@
 
 
 <% end %>
-
+<br>
 <a href="/survey/add" class="btn btn-primary">Add</a>
