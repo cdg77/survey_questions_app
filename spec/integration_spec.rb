@@ -18,8 +18,17 @@ describe('Survey App', {:type => :feature}) do
       fill_in('name', :with => 'test survey name')
       click_button('Create Survey')
       expect(page).to have_content('test survey name')
-
     end
   end
 
+  describe('the Add a Question path') do
+    it('will display new questions by survey') do
+      visit('/survey/add')
+      fill_in('name', :with => 'test survey name')
+      click_button('Create Survey')
+      fill_in('question', :with => 'test question')
+      click_button('Add Question')
+      expect(page).to have_content('test question')
+    end
+  end
 end
