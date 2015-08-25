@@ -4,6 +4,8 @@ require('sinatra/activerecord')
 require('question')
 require('survey')
 
+ENV['RACK_ENV']='test'
+
 RSpec.configure do |config|
   config.after(:each) do
     Survey.all.each do |survey|

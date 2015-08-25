@@ -1,0 +1,36 @@
+
+<form class="form-horizontal" action="/survey/add" method="post">
+  <fieldset>
+    <legend>Create a New Survey</legend>
+    <div class="form-group">
+      <label for="name" class="col-lg-2 control-label">Name</label>
+      <div class="col-lg-10">
+        <input class="form-control" type="text" name="name" placeholder="survey name">
+      </div>
+      <br>
+
+        <button type="submit" class="btn btn-primary">Create Survey</button>
+      </p>
+    </div>
+  </fieldset>
+</form>
+
+<form class="form-horizontal" action="/survey/question/add" method="post">
+  <h4>Add a Question</h4>
+  <label for="question" class="col-lg-2 control-label">Question</label>
+  <% if @survey != nil %>
+    <input type="hidden" name="survey_id" value="<%= @survey.id %>">
+  <% end %>
+  <input class="form-control" type="text" name="question" placeholder="survey question">
+  <br>
+  <button type="submit" class="btn btn-primary">Add Question</button>
+</form>
+<br>
+<% if @survey != nil %>
+<h3><%= @survey.name %></h3>
+<ul class="list-group">
+  <% @survey.questions.each do |question| %>
+      <li class="list-group-item"><%= question.description %></li>
+  <% end %>
+</ul>
+<% end %>
