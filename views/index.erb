@@ -1,0 +1,16 @@
+<h1>Survey List</h1>
+
+<% if @surveys.any?() %>
+<p>here is a list of available surveys</p>
+
+<ul>
+  <% @surveys.all().each() do |survey| %>
+  <li><%= survey.name %></li>
+  <% end %>
+</ul>
+<% else %>
+
+<p>There are no surveys to display</p>
+
+
+<% end %>
